@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome Shantanu</h1>
+    <h3><a href="{% url 'upload-img' %}">Upload Image</a></h3>
+    <div>
+        {% for img in imagesss %}
+            <h2>{{img.caption}}</h2>
+            <img src="{{img.image.url}}" alt="">
+            <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>

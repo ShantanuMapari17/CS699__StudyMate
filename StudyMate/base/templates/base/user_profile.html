@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<h1>{{user.username}}</h1>
+<img src="{{user.profile.profile_pic.url}}" alt="" id="profile_pic" class="image-fluid">
+
+
+<style>
+    .container_profile{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+<div class="profile">
+    <div class="profile-info">
+        <!-- <h3>{{ user.username }}</h3> -->
+
+        {% if request.user == user %}
+        <a href="{% url 'user-update' %}">Edit Profile</a>
+        {%else%}
+            {% if flag %}
+                <a href="{% url 'add-follower' user.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Unfollow</a>
+            {% else %}
+                <a href="{% url 'add-follower' user.id %}" class="btn btn-primary btn-lg    active" role="button" aria-pressed="true">Follow</a>
+            {% endif %}
+        <p>{{followers_count}}</p>
+
+        {% endif %}
+        
+    </div>
+</div>
+
+<div class="container_profile">
+
+    <div>
+        {% include 'base/component_topics.html' %}
+    </div>
+
+    <div>
+        {% include 'base/component_feed.html' %}
+    </div>
+
+    <div>
+        {% include 'base/component_activity.html' %}
+    </div>
+</div>
+
+{% endblock content %}

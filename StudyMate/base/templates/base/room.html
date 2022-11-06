@@ -1,0 +1,84 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .room-container{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+</style>
+<div class="room-container">
+
+    <!-- 3fr is for this part -->
+    <div>
+        <h1>{{room.name}}</h1>
+        {% if request.user == room.host %}
+            <a href="{% url 'update-room' room.id %}">Edit</a>
+            <a href="{% url 'delete-room' room.id %}">Delete</a>
+        {% endif %}
+        <p>{{room.description}}</p>
+        {% if room.post_image %}
+        <img src="{{ room.post_image.url }}" alt="">
+        {% endif %}
+        
+        <div class="row">
+            {% if request.user.is_authenticated %}
+            
+            {% if flag %}
+            <a href="{% url 'room-like' room.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Unlike</a>
+            {% else %}
+            <a href="{% url 'room-like' room.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Like</a>
+            {% endif %}
+
+            <p>{{room_likes_count}}</p>
+            {% endif %}
+        </div>
+        
+
+        <!-- Comment Section -->
+        <div class="comment-section">
+            <h3>Conversation</h3>
+            <hr>
+            
+            <!-- messege section for post -->
+            {% for message in comments %}
+                <div>
+                    <!-- check if the user is the owner in the room -->
+                    {% if request.user == message.user %}
+                    <!-- delete function -->
+                    <a href="{% url 'delete-comment' message.id %}">Delete</a>
+                    {% endif %}
+
+                    <!-- show the comment -->
+                    <small>@{{message.user}} {{message.created | timesince}} ago</small>
+                    <p>{{ message.body }}</p>
+                    <hr>
+                </div>
+            {% endfor %}
+            
+            <!-- can comment only is the user is logged in -->
+            {% if request.user.is_authenticated %}
+            <div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" placeholder="Enter your message here" name="msg_body">
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>  
+
+    <!-- Participants room || 1fr for this part -->
+    <div>
+        <h1>Participants</h1>
+        <hr>
+        {% for user in room_participants %}
+            <div>
+                <p><a href="{% url 'user_profile' user.id %}">@{{user.username}}</a></p>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}

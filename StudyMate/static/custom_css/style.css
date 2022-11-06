@@ -1,0 +1,9 @@
+h1{
+    color:brown;
+}
+
+#profile_pic{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}

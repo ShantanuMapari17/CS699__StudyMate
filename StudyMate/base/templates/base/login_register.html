@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+{% if page == 'login' %}
+<div>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="username">Username: </label>
+        <input type="text" name="username" placeholder="Username here">
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Enter Password">
+
+        <input type="submit" value="Login">
+
+    </form>
+
+    <p>Haven't Signed Up yet?</p>
+    <a href="{% url 'register' %}">Sign UP</a>
+</div>
+
+{% else %}
+<div class="container">
+    <h1 id="sign_up">SIGN UP</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+    
+        <div class="form-group">
+            <label for="f_name">First Name</label>
+            <input class="form-control" type="text" name="f_name" placeholder="Firstname" id="f_name">
+        </div>
+    
+        <div class="form-group">
+            <label for="l_name">Last Name</label>
+            <input class="form-control" type="text" name="l_name" placeholder="LastName" id="l_name">
+        </div>
+    
+        <div class="form-group">
+            <label for="u_name">Username</label>
+            <input class="form-control" type="text" name="u_name" placeholder="UserName" id="u_name">
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="input_email" aria-describedby="emailHelp" type="email" name="email" placeholder=" Email">
+        </div>
+    
+        <div class="form-group">
+            <label for="pass1">Password</label>
+            <input type="password" name="pass1" placeholder="Password" class="form-control">
+        </div>
+    
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="pass2" placeholder="Re-enter Password" class="form-control">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+        <p>Alredy A User</p>
+        <p><a href="{% url 'login' %}">Login</a></p>
+    
+
+</div>
+{% endif %}
+
+
+{% endblock content %}

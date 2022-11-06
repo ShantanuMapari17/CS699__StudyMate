@@ -1,0 +1,13 @@
+<h3>Recent Activities</h3>
+        <hr>
+
+        <!-- print messages -->
+        {% for comment in room_comments %}
+            <div>
+                <p><a href="{% url 'user_profile' comment.user.id %}">@{{comment.user}} </a>   {{comment.created | timesince}} </p>
+                <small>posted in <b><a href="{% url 'room' comment.room.id %}">{{comment.room}}</a></b> </small>
+
+                <p>{{message}}</p>
+                <hr>
+            </div>
+        {% endfor %}

@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+
+
+<div class="home-container">
+    <!-- <h1>Home Template</h1> -->
+
+    <!-- Topics column -->
+    <div>
+        <!-- inherit from component_topics.html -->
+        {% include 'base/component_topics.html' %}
+    </div>
+    <!-- ------------- -->
+
+
+    <!-- Rooms Column -->
+    <div>
+        <h5>{{room_count}}  rooms available</h5>
+
+        <a href="{% url 'create-room' %}">create-room</a>
+    
+        {% include 'base/component_feed.html' %}
+    
+    </div>
+
+
+
+    <!-- Activity Column -->
+    <div>
+        <!-- inherit from activity_component.html -->
+        {% include 'base/component_activity.html'%}
+    </div>
+</div>
+
+
+{% endblock content %}

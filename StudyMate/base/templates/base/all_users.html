@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h1>All Users</h1>
+    <div class="container">
+        {% for user in users %}
+                <div class="row">
+                    <a href="{% url 'user_profile' user.id %}"><p>{{user.username}}</p></a>
+                </div>
+            {% endfor %}
+    </div>
+{% endblock content %}
