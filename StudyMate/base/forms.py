@@ -46,6 +46,7 @@ class MyUserForm(ModelForm):
                 'class':"form-control",
                 'placeholder':"UserName",
                 'style': 'max-width: 300px;',
+                'disabled':'True',
             }),
         }
 
