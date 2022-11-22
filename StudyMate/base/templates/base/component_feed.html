@@ -1,14 +1,15 @@
 <div>
     {% for room in rooms %}
-        <div>
+        <div class="card" id="homepagecards">
+            <div  class="card-header">
             {% if request.user == room.host %}
-            <a href="{% url 'update-room' room.id %}">Edit</a>
-            <a href="{% url 'delete-room' room.id %}">Delete</a>
+            <div style="float: right;"><a class="btn btn-warning" href="{% url 'update-room' room.id %}">Edit</a>
+            <a  class="btn btn-danger" href="{% url 'delete-room' room.id %}">Delete</a></div>
             {% endif %}
             <span><a href="{% url 'user_profile' room.host.id  %}">@{{room.host.username}}</a></span>
+            </div>
             <h5><a href="{% url 'room' room.id %}">{{ room.name }}</a> </h5>
-            <small>{{room.topic.name}}</small>
-            <hr>
+            <span class="card-footer"><small>{{room.topic.name}}</small></span>
         </div>
     {% endfor %}
 </div>

@@ -1,5 +1,5 @@
 <nav class="navbar bg-dark navbar-dark">
-  <div class="container-fluid">
+  <div class="container-fluid dropleft">
           <a class="navbar-brand" href="/">
             <h1>LOGO</h1>  
           </a>
@@ -13,13 +13,15 @@
 
             {% if request.user.is_authenticated %}
             <div class="btn-group">
-              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn btn-info btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{request.user}}
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="{% url 'user-update' %}">Update Profile</a>
+                <a class="dropdown-item" href="{% url 'create-room' %}">Create Room</a>
+                <a class="dropdown-item" href="{% url 'create-topic' %}">Create Topic</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                <a class="dropdown-item text-light bg-danger" href="{% url 'logout' %}">Logout</a>
               </div>
             </div>
             {% else %}

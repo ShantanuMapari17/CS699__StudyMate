@@ -49,7 +49,7 @@ class MyUserForm(ModelForm):
                 'disabled':'True',
             }),
         }
-
+# username disabled:True user can't change there user names 
 
 
 class ProfileUpdateForm(forms.ModelForm):

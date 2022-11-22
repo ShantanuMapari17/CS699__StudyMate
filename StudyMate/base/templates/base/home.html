@@ -23,9 +23,10 @@
 
     <!-- Rooms Column -->
     <div>
-        <h5>{{room_count}}  rooms available</h5>
+        <h4><i>{{room_count}}  rooms available</i></h4>
+        <hr style="border: 1px solid red;">
 
-        <a href="{% url 'create-room' %}">create-room</a>
+        <!-- <a href="{% url 'create-room' %}">Create-room</a> -->
     
         {% include 'base/component_feed.html' %}
     
