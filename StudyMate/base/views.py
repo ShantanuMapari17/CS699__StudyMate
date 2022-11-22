@@ -50,6 +50,40 @@ def logoutUser(request):
     return redirect('home')
 # ----------------------------------------------------------------------------
 
+# reset Password------------------------------------------------------------------
+@login_required(login_url='login')
+def resetPassword(request):
+
+    if request.method=="POST":
+        username=request.POST['u_name'].lower()
+        password=request.POST['pass1']
+
+        pass2=request.POST['pass2']
+        pass3=request.POST['pass3']
+
+        user=authenticate(request,username=username, password=password)
+
+        if request.user != user:
+            messages.error(request,"Please enter your username only!!")
+            return redirect('reset-password')
+        
+        if user is not None:
+            if pass2 != pass3:
+                messages.error(request,"Old password and new password not not matching!!")
+                return redirect('reset-password')
+            
+            user.set_password(pass2)
+            return redirect('user_profile', p_key=request.user.id)
+        
+        else:
+            messages.error(request,"Username and Password not matching")
+            return redirect('reset-password')
+    
+    return render(request,'base/reset-password.html')
+
+
+# --------------------------------------------------------------------------------
+
 
 # user registration---------------------------------------------------------------
 def registerUser(request):

@@ -28,6 +28,6 @@ urlpatterns=[
 
     path('create-topic/',views.CreateTopics,name='create-topic'),
 
-
+    path('reset-password/',views.resetPassword,name='reset-password'),
     
 ]
