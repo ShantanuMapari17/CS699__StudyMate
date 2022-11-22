@@ -1,0 +1,35 @@
+h1{
+    color:brown;
+}
+
+#profile_pic{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
+
+#navbarsearchroom{
+        background-image: url('https://cdn-icons-png.flaticon.com/512/553/553416.png');
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        width: 93%;
+        padding: 10px 19px 11px 35px;
+        border: none;
+        border-radius: 20px;
+        margin-bottom: 2px;
+        font-size: 17px;
+}
+
+#navbarsearchuser {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1077/1077012.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    width: 93%;
+    padding: 10px 19px 11px 35px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 2px;
+    font-size: 17px;
+  }

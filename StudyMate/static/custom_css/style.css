@@ -7,3 +7,86 @@ h1{
     width: 300px;
     border-radius: 50%;
 }
+
+
+/* navbar */
+
+.dropdown{
+    float: left;
+    overflow: hidden;
+}
+
+
+/* added icons in placeholders user and rooms */
+#navbarsearchroom{
+        background-image: url('https://cdn-icons-png.flaticon.com/512/553/553416.png');
+        background-position: left center;
+        background-position-x: 3px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        width: 96%;
+        padding: 10px 19px 11px 35px;
+        border: none;
+        border-radius: 21px;
+        margin-bottom: 2px;
+        font-size: 17px;
+}
+
+#navbarsearchuser {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1077/1077012.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-position-x: 6px;
+    background-size: 30px;
+    width: 96%;
+    padding: 13px 19px 11px 35px;
+    border: none;
+    border-radius: 21px;
+    margin-bottom: 2px;
+    font-size: 17px;
+  }
+
+
+/* login_register.html css */
+
+#logincard{
+    margin: auto;
+    width: 30%;
+    margin-top: 5%;
+}
+
+#loginusername {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/5562/5562727.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    width: 97%;
+    padding: 10px 19px 11px 35px;
+    margin-bottom: 6px;
+    font-size: 17px;
+  }
+  
+  #loginpassword {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/8147/8147720.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    width: 97%;
+    padding: 10px 19px 11px 35px;
+    margin-bottom: 10px;
+    font-size: 17px;
+  }
+
+  /* homepage */
+
+  #homepagecards{
+    background-color:white;
+    width:90%;
+    margin-left:4.5%;
+    margin-bottom:16px;
+  }
+
+  /* registration form login_register.html*/
+  #registercard{
+    margin: auto;
+  }
