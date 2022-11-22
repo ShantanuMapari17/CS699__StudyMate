@@ -57,6 +57,7 @@
             <!-- messege section for post -->
             {% for message in comments %}
                 <div class="card">
+                    <div class="card-header">
                     <!-- check if the user is the owner in the room -->
                     {% if request.user == message.user %}
                     <!-- delete function -->
@@ -65,11 +66,16 @@
                 
                     <!-- show the comment -->
                     <small>@{{message.user}} {{message.created | timesince}} ago</small>
+                    </div>
+                    <div class="card-body">
                     <p>{{ message.body }}</p>
-                    <hr>
+                    </div>
                 </div>
+                <hr style="color: red;">
             {% endfor %}
             
+            
+
             <!-- can comment only is the user is logged in -->
             {% if request.user.is_authenticated %}
             <div>
