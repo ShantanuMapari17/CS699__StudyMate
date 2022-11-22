@@ -1,15 +1,16 @@
 <div>
     {% for room in rooms %}
-        <div class="card" id="homepagecards">
-            <div  class="card-header">
+        <div class="card shadow-lg border-dark" id="homepagecards">
+            <div  class="card-header" style="padding: 1px;">
             {% if request.user == room.host %}
-            <div style="float: right;"><a class="btn btn-warning" href="{% url 'update-room' room.id %}">Edit</a>
-            <a  class="btn btn-danger" href="{% url 'delete-room' room.id %}">Delete</a></div>
+            <div style="float: right;"><a href="{% url 'update-room' room.id %}"><i class="fa fa-edit" style="font-size:24px;color:rgb(204, 204, 19);"></i></a>
+            <a  href="{% url 'delete-room' room.id %}"><i class="fa fa-trash" style="font-size:24px;color:red;"></i></a></div>
             {% endif %}
-            <span><a href="{% url 'user_profile' room.host.id  %}">@{{room.host.username}}</a></span>
+            <span><a class="text-warning" href="{% url 'user_profile' room.host.id  %}">@{{room.host.username}}</a></span>
             </div>
-            <h5><a href="{% url 'room' room.id %}">{{ room.name }}</a> </h5>
-            <span class="card-footer"><small>{{room.topic.name}}</small></span>
+            <div class="card-body" style="padding-top: 10px;padding-bottom: 10px;"><h5><a href="{% url 'room' room.id %}">{{ room.name }}</a></h5>
+            </div>
+            <span class="card-footer" style="padding: 1px;"><small>{{room.topic.name}}</small></span>
         </div>
     {% endfor %}
 </div>

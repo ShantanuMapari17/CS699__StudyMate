@@ -2,6 +2,10 @@ h1{
     color:brown;
 }
 
+hr{
+  color: red;
+}
+
 #profile_pic{
     height: 300px;
     width: 300px;
@@ -83,10 +87,18 @@ h1{
     background-color:white;
     width:90%;
     margin-left:4.5%;
-    margin-bottom:16px;
+    margin-bottom:30px;
+    /* box-shadow:8px 8px lightblue; */
   }
 
   /* registration form login_register.html*/
   #registercard{
     margin: auto;
+  }
+
+  #deletecard{
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top:4% ;
   }

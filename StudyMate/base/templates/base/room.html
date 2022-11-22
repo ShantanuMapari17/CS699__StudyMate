@@ -11,29 +11,42 @@
 <div class="room-container">
 
     <!-- 3fr is for this part -->
-    <div>
-        <h1>{{room.name}}</h1>
-        {% if request.user == room.host %}
-            <a href="{% url 'update-room' room.id %}">Edit</a>
-            <a href="{% url 'delete-room' room.id %}">Delete</a>
-        {% endif %}
+    <div class="card">
+            <h1 style="padding: 0;margin:0;"><div>{{room.name}}
+            {% if request.user == room.host %}
+                
+                    <a class="text-warning" href="{% url 'update-room' room.id %}"><i class="fa fa-edit" style="font-size:18px;"></i></a>
+                    <a class="text-danger" href="{% url 'delete-room' room.id %}"><i class="fa fa-trash" style="font-size:18px;color:red;"></i></a>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            
+            {% if flag %}
+            <a href="{% url 'room-like' room.id %}" role="button" aria-pressed="true"><i class="fa fa-thumbs-down" style="font-size:18px;margin-left:25px;color:red;"></i></a>
+            {% else %}
+            <a href="{% url 'room-like' room.id %}" role="button" aria-pressed="true"><i class="fa fa-thumbs-up" style="font-size:18px;margin-left:25px;color:green;"></i></a>
+            {% endif %}
+            </div></h1>
+            <p style="margin: 0;">Likes : {{room_likes_count}}</p>
+            <hr style="border:1px solid red;">
         <p>{{room.description}}</p>
         {% if room.post_image %}
         <img src="{{ room.post_image.url }}" alt="">
         {% endif %}
-        
-        <div class="row">
+
+        {% endif %}
+        <hr style="border-color:red;">
+        <!-- <div class="row">
             {% if request.user.is_authenticated %}
             
             {% if flag %}
-            <a href="{% url 'room-like' room.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Unlike</a>
+            <a href="{% url 'room-like' room.id %}" role="button" aria-pressed="true"><i class="fa fa-thumbs-down" style="font-size:18px;margin-left:25px;color:red;"></i></a>
             {% else %}
-            <a href="{% url 'room-like' room.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Like</a>
+            <a href="{% url 'room-like' room.id %}" role="button" aria-pressed="true"><i class="fa fa-thumbs-up" style="font-size:18px;margin-left:25px;color:green;"></i></a>
             {% endif %}
 
-            <p>{{room_likes_count}}</p>
+            
             {% endif %}
-        </div>
+        </div> -->
         
 
         <!-- Comment Section -->
@@ -43,13 +56,13 @@
             
             <!-- messege section for post -->
             {% for message in comments %}
-                <div>
+                <div class="card">
                     <!-- check if the user is the owner in the room -->
                     {% if request.user == message.user %}
                     <!-- delete function -->
                     <a href="{% url 'delete-comment' message.id %}">Delete</a>
                     {% endif %}
-
+                
                     <!-- show the comment -->
                     <small>@{{message.user}} {{message.created | timesince}} ago</small>
                     <p>{{ message.body }}</p>

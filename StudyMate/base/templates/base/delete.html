@@ -1,11 +1,12 @@
 {% extends 'main.html' %}
 
 {% block content %}
+<div id="deletecard" class="card shadow-lg rounded">
 <form action="" method="post">
     {% csrf_token %}
-    <p>Are you sure You want to delete "{{obj}}"??</p>
-    <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
-    <input type="submit" value="confirm">
+    <p>Are you sure You want to delete <i><h3>"{{obj}}"</h3></i>??</p>
+    <a class="btn btn-success" href="{{request.META.HTTP_REFERER}}">Go Back</a>
+    <input class="btn btn-danger" type="submit" value="Confirm">
 </form>
-
+</div>
 {% endblock content %}

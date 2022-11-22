@@ -46,7 +46,6 @@ class MyUserForm(ModelForm):
                 'class':"form-control",
                 'placeholder':"UserName",
                 'style': 'max-width: 300px;',
-                # 'disabled':'True',
             }),
         }
 # username disabled:True user can't change there user names 
