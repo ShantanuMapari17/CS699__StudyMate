@@ -1,7 +1,7 @@
 <nav class="navbar bg-dark navbar-dark">
   <div class="container-fluid dropleft">
           <a class="navbar-brand" href="/">
-            <h1>LOGO</h1>  
+            <h1>STUDYMATE</h1>  
           </a>
             <form class="form-inline" action="{% url 'home' %}" method="GET">
               <input id="navbarsearchroom" class="form-control mr-sm-2" type="text" name="q" placeholder="Search Room">
@@ -17,6 +17,7 @@
                 {{request.user}}
               </button>
               <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'user_profile' user.id %}">View Profile</a>
                 <a class="dropdown-item" href="{% url 'user-update' %}">Update Profile</a>
                 <a class="dropdown-item" href="{% url 'reset-password' %}">Change Password</a>
                 <a class="dropdown-item" href="{% url 'create-room' %}">Create Room</a>

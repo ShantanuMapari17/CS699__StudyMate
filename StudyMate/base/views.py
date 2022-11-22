@@ -125,6 +125,7 @@ def registerUser(request):
 
 
 # main home page function-----------------------------------------------------------
+@login_required(login_url='login')
 def home(request):
     # filter the post on the basis of the query by user
     if request.GET.get('q') != None:
@@ -159,6 +160,7 @@ def home(request):
 
 
 # ----Room Page---------------------------------------------------
+@login_required(login_url='login')
 def room(request,pk):
     room=None
     room=Room.objects.get(id=pk)
@@ -276,6 +278,7 @@ def deleteComment(request, p_key):
 
 
 # USER PROFILE ---------------------------------------------------------------------
+@login_required(login_url='login')
 def userProfile(request,p_key):
     user=User.objects.get(id=p_key)
     followers=user.profile.follower.all()
@@ -327,6 +330,7 @@ def updateUser(request):
 
 
 #Room-Likes Feature=================================================================
+@login_required(login_url='login')
 def RoomLike(request,pk):
     room=Room.objects.get(id=pk)
 
@@ -340,7 +344,7 @@ def RoomLike(request,pk):
 
 
 # view all users===================================================================
-
+@login_required(login_url='login')
 def AllUsers(request):
 
     if request.GET.get('q') != None:
@@ -365,6 +369,7 @@ def AllUsers(request):
     
 
 # Create Topics==================================================================
+@login_required(login_url='login')
 def CreateTopics(request):
     if request.method=='POST':
         topic_name=request.POST['topic_name']
@@ -385,6 +390,7 @@ def CreateTopics(request):
 # ==============================================================================
 
 #Add follower===================================================================
+@login_required(login_url='login')
 def AddFollower(request,pk):
     user=User.objects.get(id=pk)
 
