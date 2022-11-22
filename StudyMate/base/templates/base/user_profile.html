@@ -3,7 +3,29 @@
 
 {% block content %}
 <h1>{{user.username}}</h1>
-<img src="{{user.profile.profile_pic.url}}" alt="" id="profile_pic" class="image-fluid">
+<img src="{{user.profile.profile_pic.url}}" alt="" id="profilepic" class="image-fluid">
+<div  style="position: relative;float:right;margin-top:-50px;margin-right:62.7%">
+        <div>
+            <!-- <div class="card-header"> -->
+                <h3>Details:</h3>
+            <!-- </div> -->
+                <!-- <div class="card-body"> -->
+                        <h6>First Name : {{ user.first_name }}</h6>
+                        <h6>Last Name : {{ user.last_name }}</h6>
+                        <h6>Followers : {{ followers_count }}</h6>
+                    <!-- </div> -->
+        </div>
+</div>
+
+<div style="position: absolute;margin-left:670px;margin-top:-250px">
+<div>
+    <div class="card-title">
+    <h3>Description:</h3>
+    </div>
+
+    {{user.profile.bio}}
+</div>
+</div>
 
 
 <style>
@@ -15,17 +37,14 @@
 <div class="profile">
     <div class="profile-info">
         <!-- <h3>{{ user.username }}</h3> -->
-
         {% if request.user == user %}
-        <a href="{% url 'user-update' %}">Edit Profile</a>
+        <a class="btn btn-danger" href="{% url 'user-update' %}">Edit Profile</a>
         {%else%}
             {% if flag %}
-                <a href="{% url 'add-follower' user.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Unfollow</a>
+                <a class="btn btn-danger" href="{% url 'add-follower' user.id %}" role="button" aria-pressed="true">Unfollow</a>
             {% else %}
-                <a href="{% url 'add-follower' user.id %}" class="btn btn-primary btn-lg    active" role="button" aria-pressed="true">Follow</a>
+                <a class="btn btn-success" href="{% url 'add-follower' user.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Follow</a>
             {% endif %}
-        <p>{{followers_count}}</p>
-
         {% endif %}
         
     </div>
@@ -38,6 +57,7 @@
     </div>
 
     <div>
+        <div style="margin-top:-3px;"><h3>Rooms:</h3></div>
         {% include 'base/component_feed.html' %}
     </div>
 

@@ -2,11 +2,14 @@
 
 {% block content %}
     <h1>All Users</h1>
+    <hr style="border-color: red;">
     <div class="container">
+        <ul>
         {% for user in users %}
                 <div class="row">
-                    <a href="{% url 'user_profile' user.id %}"><p>{{user.username}}</p></a>
+                    <li><a class="text-primary" href="{% url 'user_profile' user.id %}"><p>{{user.username}}</p></a></li>
                 </div>
             {% endfor %}
+        </ul>        
     </div>
 {% endblock content %}

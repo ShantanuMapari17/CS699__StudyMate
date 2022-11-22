@@ -6,9 +6,9 @@ hr{
   color: red;
 }
 
-#profile_pic{
-    height: 300px;
-    width: 300px;
+#profilepic{
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
 }
 
@@ -101,4 +101,13 @@ hr{
     text-align: center;
     margin: auto;
     margin-top:4% ;
+  }
+
+  .imgtobtn{
+    width: 70px;
+    height: 70px;
+  }
+
+  .columns{
+    border: 1px solid black;
   }
