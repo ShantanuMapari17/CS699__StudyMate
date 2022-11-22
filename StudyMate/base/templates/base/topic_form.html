@@ -1,13 +1,21 @@
 {% extends 'main.html' %}
 
 {% block content %}
+<div class="card shadow-lg" style="margin:auto;width:50%;margin-top:12%;">
+<div class="card-header">
 <h2>Create Topic</h2>
+</div>
+
 <form action="" method="post">
     {% csrf_token %}
-    <div class="form-group">
-        <label for="topic_name">Topic Name</label>
-        <input type="text" class="form-control" placeholder="topic Name" name="topic_name">
+    <div class="card-body form-group">
+        <label for="topic_name"><h2>Topic Name</h2></label>
+        <input type="text" class="form-control" placeholder="Topic Name" name="topic_name">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="card-footer">
+    <button type="submit" class="btn btn-success">Submit</button>
+    </div>
 </form>
+
+</div>
 {% endblock content %}

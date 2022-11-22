@@ -56,22 +56,22 @@
             
             <!-- messege section for post -->
             {% for message in comments %}
-                <div class="card">
+                <div class="card shadow-lg">
                     <div class="card-header">
                     <!-- check if the user is the owner in the room -->
                     {% if request.user == message.user %}
                     <!-- delete function -->
-                    <a href="{% url 'delete-comment' message.id %}">Delete</a>
+                    <a href="{% url 'delete-comment' message.id %}"><i class="fa fa-trash" style="font-size:18px;color:red;"></i></a>
                     {% endif %}
                 
                     <!-- show the comment -->
-                    <small>@{{message.user}} {{message.created | timesince}} ago</small>
+                    <small><i class="text-primary">@{{message.user}}</i> {{message.created | timesince}} ago</small>
                     </div>
                     <div class="card-body">
                     <p>{{ message.body }}</p>
                     </div>
                 </div>
-                <hr style="color: red;">
+                <hr style="border-color: red;">
             {% endfor %}
             
             
@@ -79,9 +79,9 @@
             <!-- can comment only is the user is logged in -->
             {% if request.user.is_authenticated %}
             <div>
-                <form action="" method="post">
+                <form class="form-inline" action="" method="post">
                     {% csrf_token %}
-                    <input type="text" placeholder="Enter your message here" name="msg_body">
+                    <input type="textarea" placeholder="Enter your message here" name="msg_body">
                 </form>
             </div>
             {% endif %}
@@ -91,7 +91,7 @@
     <!-- Participants room || 1fr for this part -->
     <div>
         <h1>Participants</h1>
-        <hr>
+        <hr style="border-color: red;">
         {% for user in room_participants %}
             <div>
                 <p><a href="{% url 'user_profile' user.id %}">@{{user.username}}</a></p>

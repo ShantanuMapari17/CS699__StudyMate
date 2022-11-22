@@ -1,5 +1,5 @@
 <h3>Recent Activities</h3>
-        <hr>
+        <hr style="border-color:red">
 
         <!-- print messages -->
         {% for comment in room_comments %}
@@ -8,6 +8,5 @@
                 <small>posted in <b><a href="{% url 'room' comment.room.id %}">{{comment.room}}</a></b> </small>
 
                 <p>{{message}}</p>
-                <hr>
             </div>
         {% endfor %}

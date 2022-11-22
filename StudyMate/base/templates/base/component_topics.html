@@ -1,10 +1,9 @@
 <h3>Browse topics</h3>
-        <hr>
+        <hr style="border-color: red;">
         <!-- <div><a href="{% url 'create-topic' %}">Create Topic</a></div> -->
         <div>
-            <a href="{% url 'home' %}">All</a>
+            <a href="{% url 'home' %}"><b>All</b></a>
         </div>
-
         {% for topic in topics %}
             <div>
                 <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
