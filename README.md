@@ -15,6 +15,8 @@ Run this command after installing postgres
 
 ## Instructions for postgres
 ### Installation Link
+https://www.youtube.com/watch?v=tducLYZzElo&t=602s
+
 `https://www.postgresql.org/download/linux/ubuntu/`
 
 ### Some Commands to start postgres
@@ -38,3 +40,12 @@ Run this command after installing postgres
 ### Installing pgadmin
 https://www.pgadmin.org/download/pgadmin-4-apt/
 
+After this setup database accorrding to **setting.py**
+
+
+## Runnnig instrustions
+```
+$ python manage.py makemigrations
+$ python manage.py migrate
+$ python manage.py runserver
+```
