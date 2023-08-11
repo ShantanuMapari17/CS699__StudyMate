@@ -7,7 +7,8 @@ First create your own enviroment
 You will get error here for **psycopg2**
 
 Run this command after installing postgres
-`sudo apt-get install --reinstall libpq-dev`
+
+`$ sudo apt-get install --reinstall libpq-dev `
 
 
 
