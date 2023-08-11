@@ -4,7 +4,9 @@ First create your own enviroment
 
 `$ pip install -r requirements.txt`
 
-You will get error here for postgres, follow Error.md
+You will get error here for **psycopg2**
+
+Run this command after installing postgres
 
 
 ## Instructions for postgres
