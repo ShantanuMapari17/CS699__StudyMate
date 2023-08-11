@@ -1,5 +1,11 @@
 # CS699__StudyMate
 
+First create your own enviroment
+
+`$ pip install -r requirements.txt`
+
+You will get error here for postgres, follow Error.md
+
 
 ## Instructions for postgres
 ### Installation Link
